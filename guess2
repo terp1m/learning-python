@@ -1,0 +1,33 @@
+import random
+choice = 1
+record = None
+while choice == 1:
+    number = random.randint(1,100)
+    tries = 7
+    while tries > 0:
+        usernumber = int(input("Guess the number"))
+        tries -= 1
+        attempts =  7 - tries
+        if usernumber == number:
+            print("You got it!")
+            if record is None or attempts < record:
+                record = attempts
+                print(f"U won in {attempts} attempts")
+                print("New record!")
+            break
+        
+        if usernumber > number:
+            print("Too big")
+        elif usernumber < number:
+            print("Too small")
+        if tries == 0:
+            print("You lost!")
+            break
+        if tries > 0:
+            difference = abs(number - usernumber)
+            if difference <= 5:
+                print("Very close!")
+            elif difference <= 15:
+                print("Close")
+        print("Attempts left:",tries)
+    choice = int(input("1 - play again 2 - exit"))
