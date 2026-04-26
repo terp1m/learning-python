@@ -1,0 +1,2 @@
+
+        task = tasks[i]
